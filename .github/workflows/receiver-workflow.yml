@@ -29,9 +29,9 @@ jobs:
          sudo apt-get update
          sudo apt-get install -y gcovr
       - name: build for Receiver
-        run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o Receiver Receiver/*.c      
+        run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o receiver Receiver/*.c      
       - name: Pipeline Sender and receiver
-        run: python sender.py | ./Receiver
+        run: python sender.py | ./receiver
       - name: Run and collect coverage
         run: |
           coverage run -m pytest
